@@ -4,7 +4,7 @@
   "description": "Dostaq is a web framework based on express.js with extra functionality",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "istanbul cover jasmine-node spec/e2e"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,8 @@
     "striptags": "^3.1.1"
   },
   "devDependencies": {
-    "jasmine": "^3.1.0",
+    "istanbul": "^0.4.5",
+    "jasmine-node": "^1.14.5",
     "jasmine-spec-reporter": "^4.2.1",
     "request": "^2.85.0"
   }
