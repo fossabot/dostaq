@@ -30,8 +30,9 @@ let Utils = exports
 /**
  * Creating view engine instance
  * 
+ * @param   {object}        conf
  * @returns {DostaqEngine}
  */
-Utils.createEngine = function() {
-  return new DostaqEngine(viewPath)
+Utils.createEngine = function(conf) {
+  return new DostaqEngine(viewPath, conf)
 }

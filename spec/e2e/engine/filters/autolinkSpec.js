@@ -42,4 +42,25 @@ describe('Test filter autolink', () => {
       .catch(cb)
   })
 
+  it('Should transform url and email into anchor tag with class my-link', (cb) => {
+    let dostaqEngine = utils.createEngine({
+      autolink: {
+        className: 'my-link'
+      }
+    })
+
+    dostaqEngine
+      .registerFilter('autolink')
+      .then(() => {
+        return dostaqEngine._engine.renderFile('autolink', {
+          myhtml: 'This is a link google.com. and mail support@unquez.com will be translated as we want'
+        })
+      })
+      .then(output => {
+        expect(output.trim()).toBe('This is a link <a href="http://google.com" class="my-link my-link-url" target="_blank" rel="noopener noreferrer">google.com</a>. and mail <a href="mailto:support@unquez.com" class="my-link my-link-email" target="_blank" rel="noopener noreferrer">support@unquez.com</a> will be translated as we want')
+        cb()
+      })
+      .catch(cb)
+  })
+
 })
