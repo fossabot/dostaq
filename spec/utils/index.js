@@ -22,6 +22,7 @@
  * SOFTWARE.
  */
 const DostaqEngine = require('../../lib/engine')
+    , Dostaq = require('../../lib/core/dostaq')
     , path = require('path')
 
 let Utils = exports 
@@ -35,4 +36,13 @@ let Utils = exports
  */
 Utils.createEngine = function(conf) {
   return new DostaqEngine(viewPath, conf)
+}
+
+/**
+ * Retrieve Dostaq
+ * 
+ * @returns {Dostaq} 
+ */
+Utils.getDostaq = function() {
+  return Dostaq
 }
